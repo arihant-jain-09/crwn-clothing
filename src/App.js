@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <Switch>
-      <Route exact path='/' component={Hompage}/>
+      <Route exact path='/crwn-clothing' component={Hompage}/>
       <Route path='/' component={Hats}/>
     </Switch>
     </div>
