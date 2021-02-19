@@ -11,7 +11,7 @@ return <div>
     {shop.items.filter((val,i)=>{
       return i<4;
     }).map((s)=>{
-      return <CollectionItem key={s.id} name={s.name} image={s.imageUrl} id={s.id} price={s.price}/>
+      return <CollectionItem key={s.id} item={s} name={s.name} image={s.imageUrl} id={s.id} price={s.price}/>
     })}
   </div>
   </div>
