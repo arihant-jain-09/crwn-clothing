@@ -6,6 +6,9 @@ import {connect} from 'react-redux'
 import './header.styles.scss'
 import CartIcon from '../cart-icon/cart-icon.jsx'
 import CartDropdown from '../cart-dropdown/cart-dropdown.jsx'
+import {createSelectorCartHidden} from '../../redux/cart/cart.selector.js'
+import {createSelectorUser} from '../../redux/user/user.selector.js'
+import {createStructuredSelector} from 'reselect'
 function Header({currentUser,hidden}){
   return <div className='header'>
     <Link className='logo-container' to='/'>
@@ -20,9 +23,14 @@ function Header({currentUser,hidden}){
     {hidden? null:(<CartDropdown />)}
   </div>
 }
-const mapStateToProps = state=>({
-  currentUser:state.user.currentUser,
-  hidden:state.cart.hidden
+// const mapStateToProps = state=>({
+//   currentUser:createSelectorUser(state),
+//   hidden:createSelectorCartHidden(state)
+// })
+//using createStructuredSelector no difference 
+const mapStateToProps = createStructuredSelector({
+  currentUser:createSelectorUser,
+  hidden:createSelectorCartHidden
 })
 
 

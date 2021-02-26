@@ -4,6 +4,9 @@ export const createSelectorCart=createSelector(
   [selectCart],
   cart=>cart.cartitems
 )
+export const createSelectorCartHidden=createSelector(
+  [selectCart],
+  cart=>cart.hidden)
 export const createSelectorCartitems=createSelector(
   [createSelectorCart],
   cartitems=>cartitems.reduce((accumulator,cartitem)=>

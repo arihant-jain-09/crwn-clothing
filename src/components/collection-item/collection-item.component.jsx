@@ -13,7 +13,6 @@ function CollectionItem({item,name,price,image, addItem,cartitems,id}){
       <span className='price'>{price}</span>
     </div>
     <CustomButton onClick={()=>{
-      console.log('clicked');
       addItem(item)
     }} inverted>Add to cart</CustomButton>
   </div>
