@@ -1,7 +1,7 @@
-import {addItemToCart} from './cart.utils.js'
+import addItemToCart from './cart.utils.js'
 const initialState={
   hidden:true,
-  cartitems:[]
+  cartitems:[],
 }
 const cartReducer=(state=initialState,action)=>{
   switch(action.type){
@@ -12,9 +12,10 @@ const cartReducer=(state=initialState,action)=>{
       }
       case 'ADD_ITEM':
       return {
+          // myfunc:addItemToCart(state.cartitems, action.payload),
         ...state,
         // cartitems:[...state.cartitems,action.payload]
-        cartItems: addItemToCart(state.cartItems, action.payload)
+        cartitems: addItemToCart(state.cartitems, action.payload)
         }
     default:
       return state

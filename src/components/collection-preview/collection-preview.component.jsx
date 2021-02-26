@@ -5,7 +5,7 @@ import CollectionItem from '../collection-item/collection-item.component.jsx'
 function CollectionPreview(){
 return <div>
 {shopdata.map((shop)=>{
-  return <div className='collection-preview'>
+  return <div key={shop.id} className='collection-preview'>
     <h1 className='title'>{shop.title}</h1>
     <div className='preview'>
     {shop.items.filter((val,i)=>{
@@ -13,6 +13,7 @@ return <div>
     }).map((s)=>{
       return <CollectionItem key={s.id} item={s} name={s.name} image={s.imageUrl} id={s.id} price={s.price}/>
     })}
+
   </div>
   </div>
 })}
