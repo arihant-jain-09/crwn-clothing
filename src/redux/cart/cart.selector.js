@@ -13,3 +13,9 @@ export const createSelectorCartitems=createSelector(
     accumulator+cartitem.quantity
   ,0)
 )
+export const createSelectorCartTotal=createSelector(
+  [createSelectorCart],
+  cartitems=>cartitems.reduce((accumulator,cartitem)=>
+    accumulator+ (cartitem.quantity * cartitem.price)
+  ,0)
+)

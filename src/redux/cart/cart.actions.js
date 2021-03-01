@@ -9,3 +9,15 @@ export const addItem=(item)=>{
     payload:item
   }
 }
+export const removeItem=(item)=>{
+  return{
+    type:'remove_item',
+    payload:item
+  }
+}
+export const DecreaseItem=(item)=>{
+  return{
+    type:'decrease_item',
+    payload:item
+  }
+}
