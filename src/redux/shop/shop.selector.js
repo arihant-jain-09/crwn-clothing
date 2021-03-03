@@ -4,14 +4,19 @@ export const ShopSelector=createSelector(
   [Shopselect],
   shopdata=>shopdata.shopdata
 )
-const ComponentMap={
-  hats:1,
-  jackets:2,
-  sneakers:3,
-  womens:4,
-  mens:5
-}
+//array method of finding and mapping is bad it would take a long time to find items
+// const ComponentMap={
+//   hats:1,
+//   jackets:2,
+//   sneakers:3,
+//   womens:4,
+//   mens:5
+// }
+// export const ComponentSelect=(componentid)=>createSelector(
+//   [ShopSelector],
+//   component=>component.find(component=>component.id === ComponentMap[componentid])
+// )
 export const ComponentSelect=(componentid)=>createSelector(
   [ShopSelector],
-  component=>component.find(component=>component.id === ComponentMap[componentid])
+  components=>components[componentid]
 )
