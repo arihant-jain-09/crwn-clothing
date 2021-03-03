@@ -4,7 +4,14 @@ export const ShopSelector=createSelector(
   [Shopselect],
   shopdata=>shopdata.shopdata
 )
+//ShopSelector is now an object with keys as hats,jackets,etc...
+//now to convert object to array items to map and render in /shop
+export const ShopPreview=createSelector(
+  [ShopSelector],
+  shop=>Object.keys(shop).map(key=>shop[key])
+)
 //array method of finding and mapping is bad it would take a long time to find items
+
 // const ComponentMap={
 //   hats:1,
 //   jackets:2,
