@@ -6,7 +6,9 @@ function MenuItem(props){
   let history=useHistory();
   let match=useRouteMatch();
   return <div className={`${props.size} menu-item`} onClick={()=>{
-    history.push(`${match.url}${props.linkUrl}`)}}>
+    console.log(match);
+    history.push(`${match.url}${props.linkUrl}`)}
+  }>
     <div className='background-image' style={{ backgroundImage:`url(${props.imageurl})` }}/>
   <div className='content'>
     <h1 className='title'>{props.title.toUpperCase()}</h1>
