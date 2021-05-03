@@ -1,6 +1,5 @@
 import React from 'react'
 import './menu-item.styles.scss'
-// import {withRouter} from 'react-router-dom'
 import { useHistory,useRouteMatch } from "react-router-dom";
 function MenuItem(props){
   let history=useHistory();
@@ -17,4 +16,3 @@ function MenuItem(props){
   </div>
 }
 export default MenuItem;
-// export default withRouter(MenuItem);

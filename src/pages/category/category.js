@@ -5,7 +5,7 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 import {connect} from 'react-redux'
 const CategoryPage=({match,shopdata})=>{
   const {title,items}=shopdata
-  // console.log(match.params.categoryId);
+  console.log(match.params.categoryId);
   // console.log(shopdata);
   console.log(items);
   return <div className='category'>
