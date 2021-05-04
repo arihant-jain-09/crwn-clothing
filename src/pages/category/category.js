@@ -2,12 +2,11 @@
 import './category.scss'
 import {ComponentSelect} from '../../redux/shop/shop.selector.js'
 import CollectionItem from '../../components/collection-item/collection-item.component.jsx'
-import {connect} from 'react-redux'
-const CategoryPage=({match,shopdata})=>{
+import {useSelector} from 'react-redux'
+const CategoryPage=({match})=>{
+  const shopdata=ComponentSelect(match.params.categoryId)(useSelector((state)=>state))
   const {title,items}=shopdata
-  console.log(match.params.categoryId);
-  // console.log(shopdata);
-  console.log(items);
+  // console.log(match.params.categoryId);
   return <div className='category'>
     <h2 className='title'>{title}</h2>
     <div className='items'>
@@ -20,7 +19,4 @@ const CategoryPage=({match,shopdata})=>{
       </div>
   </div>
 }
-const mapStateToProps = (state,otherprops)=>({
-  shopdata:ComponentSelect(otherprops.match.params.categoryId)(state)
-})
-export default connect(mapStateToProps)(CategoryPage);
+export default CategoryPage;
