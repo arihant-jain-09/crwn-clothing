@@ -15,6 +15,34 @@ const config ={
   export const auth=firebase.auth();
   export const firestore=firebase.firestore()
 
+  export const addCollectionAndDocuments=async(collectionkey,objectsToAdd)=>{
+    const collectionRef=firestore.collection(collectionkey);
+    const batch=firestore.batch();
+    objectsToAdd.map((item)=>{
+      const newDocRef=collectionRef.doc();
+      return batch.set(newDocRef,{
+        title:item.title,
+        items:item.items
+      })
+    })
+    return await batch.commit().then((val)=>console.log(val))
+  }
+
+  export const TransformData=(collections)=>{
+    const transformedCollection=collections.map((item)=>{
+      return {
+        title:item.title,
+        id:item.id,
+        items:item.items,
+        routeName:encodeURI(item.title.toLowerCase()),
+      }
+    })
+    return transformedCollection.reduce((accumulator,collection)=>{
+      accumulator[collection.title.toLowerCase()]=collection;
+      return accumulator
+    },{})
+    
+  }
   const provider=new firebase.auth.GoogleAuthProvider()
   provider.setCustomParameters({prompt:'select_account'});
   export const signInWithGoogle=()=>auth.signInWithPopup(provider);

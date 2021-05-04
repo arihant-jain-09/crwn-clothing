@@ -4,6 +4,11 @@ const INITIAL_STATE={
 }
 const ShopReducer=(state=INITIAL_STATE,action)=>{
   switch (action.type){
+    case 'Update_Collections':
+    return{
+      ...state,
+      shopdata:action.payload
+    }
     default:
     return state
   }

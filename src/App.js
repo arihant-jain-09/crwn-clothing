@@ -11,7 +11,6 @@ import {useDispatch} from 'react-redux';
 import {setCurrentUser} from './redux/user/user.actions.js'
 import { useAuthState } from 'react-firebase-hooks/auth';
 // import {HideDropdown} from './redux/cart/cart.actions.js'
-
 const App=()=> {
   const dispatch=useDispatch();
   const [user]=useAuthState(auth);
