@@ -4,7 +4,7 @@ import {ComponentSelect} from '../../redux/shop/shop.selector.js'
 import CollectionItem from '../../components/collection-item/collection-item.component.jsx'
 import {useSelector} from 'react-redux'
 const CategoryPage=({match})=>{
-  const shopdata=ComponentSelect(match.params.categoryId)(useSelector((state)=>state))
+  const shopdata=ComponentSelect(match.params.categoryId)(useSelector((state)=>state));
   const {title,items}=shopdata
   // console.log(match.params.categoryId);
   return <div className='category'>

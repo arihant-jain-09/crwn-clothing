@@ -29,12 +29,13 @@ const config ={
   }
 
   export const TransformData=(collections)=>{
-    const transformedCollection=collections.map((item)=>{
+    const transformedCollection=collections.docs.map((item)=>{
+      const {title,items}=item.data();
       return {
-        title:item.title,
+        title:title,
         id:item.id,
-        items:item.items,
-        routeName:encodeURI(item.title.toLowerCase()),
+        items:items,
+        routeName:encodeURI(title.toLowerCase()),
       }
     })
     return transformedCollection.reduce((accumulator,collection)=>{
