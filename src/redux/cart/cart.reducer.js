@@ -28,6 +28,12 @@ const cartReducer=(state=initialState,action)=>{
         ...state,
         cartitems: removeItemFromCart(state.cartitems,action.payload)
       }
+      case 'Clear_Cart_saga':
+        return{
+          ...state,
+          cartitems:[],
+          hidden:true
+        }
     default:
       return state
   }

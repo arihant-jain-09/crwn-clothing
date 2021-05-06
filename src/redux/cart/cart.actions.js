@@ -21,3 +21,8 @@ export const DecreaseItem=(item)=>{
     payload:item
   }
 }
+export const ClearCart=()=>{
+  return{
+    type:'Clear_Cart_saga',
+  }
+}

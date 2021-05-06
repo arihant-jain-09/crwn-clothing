@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import { auth } from '../../firebase/firebase.utils.js';
-import {useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './sign-up.styles.scss';
+import { useDispatch } from 'react-redux';
+import { SignUpStart } from '../../redux/user/user.actions';
 
 const SignUp=()=> {
   const [myuser,setmyuser]=useState({
@@ -13,21 +13,15 @@ const SignUp=()=> {
     confirmPassword:'',
     myuser:''
   })
-  const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
+  const dispatch = useDispatch();
   const handleSubmit = async event => {
     event.preventDefault();
     if (myuser.password !== myuser.confirmPassword) {
       alert("passwords don't match");
       return;
     }
-
-    try {
-      console.log(myuser);
-      createUserWithEmailAndPassword(myuser.email,myuser.password)
-    } 
-    catch (error) {
-      console.error(error);
-    }
+    const {email,password}=myuser;
+    dispatch(SignUpStart({email,password}))   
   };
 
   const handleChange = event => {
