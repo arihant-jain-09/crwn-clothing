@@ -20,11 +20,11 @@ function CartDropdown(){
           <CartItem key={cartitem.id} item={cartitem}/>
         ))
       }
-        <CustomButton onClick={()=>{
+      </div>
+      <CustomButton onClick={()=>{
           history.push('/checkout')
           dispatch(toggleCartHidden());
         }}>Go to Checkout</CustomButton>
-      </div>
     </div>
   </>}
   export default CartDropdown;

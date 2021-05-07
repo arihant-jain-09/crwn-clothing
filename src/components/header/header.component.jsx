@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {ReactComponent as Logo} from '../../assets/crown.svg'
-import {auth} from '../../firebase/firebase.utils.js'
 import {useDispatch, useSelector} from 'react-redux'
 import './header.styles.scss'
 import CartIcon from '../cart-icon/cart-icon.jsx'
