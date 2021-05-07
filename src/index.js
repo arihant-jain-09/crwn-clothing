@@ -6,15 +6,32 @@ import App from './App';
 import {store,persistor} from './redux/store'
 import {PersistGate} from 'redux-persist/integration/react'
 import {Provider} from 'react-redux';
-// import reportWebVitals from './reportWebVitals';
+import { ApolloProvider,ApolloClient} from '@apollo/client';
+import { InMemoryCache } from "@apollo/client/cache"; 
+
+const client = new ApolloClient({ uri:'https://www.crwn-clothing.com/', cache:new InMemoryCache()});
+
+// client.query({
+//   query:gql`
+//   {
+//     collections {
+//       id
+//       title
+//     }
+//   }
+//   `
+// }).then((result)=>console.log(result))
 
 ReactDOM.render(
-  <Provider store={store}>
-  <BrowserRouter>
-    <PersistGate persistor={persistor}>
-    <App />
-  </PersistGate>
-  </BrowserRouter></Provider>,document.getElementById('root')
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
+      </BrowserRouter>
+    </Provider>
+  </ApolloProvider>,document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

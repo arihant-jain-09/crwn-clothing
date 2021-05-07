@@ -1,15 +1,34 @@
 import React from 'react'
-// import shopdata from '../../pages/shop/shop.data.js'
-// import {ShopSelector} from '../../redux/shop/shop.selector.js'
-import {ShopPreview} from '../../redux/shop/shop.selector.js'
-import {useSelector} from 'react-redux'
+
+// import {ShopPreview} from '../../redux/shop/shop.selector.js'
+// import {useSelector} from 'react-redux'
+import { useQuery, gql } from '@apollo/client';
 import './collection-preview.styles.scss'
 import CollectionItem from '../collection-item/collection-item.component.jsx'
+import Spinner from '../spinner/spinner.jsx';
+
+const GET_COLLECTIONS=gql`
+{
+  collections {
+    id
+    title
+    items{
+      id
+      name
+      imageUrl
+      price
+    }
+  }
+}
+`
+
 function CollectionPreview(){
-const shopdata=ShopPreview(useSelector((state)=>state))
-return <>
-  <div>
-  {shopdata.map((shop)=>{
+// const shopdata=ShopPreview(useSelector((state)=>state))
+const {loading,error,data}=useQuery(GET_COLLECTIONS);
+if(loading) return <Spinner/>
+if(error) return <h1>404</h1>
+return <div>
+  {data.collections.map((shop)=>{
     return <div key={shop.id} className='collection-preview'>
       <h1 className='title'>{shop.title}</h1>
       <div className='preview'>
@@ -22,6 +41,5 @@ return <>
     </div>
   })}
   </div>
-</>
 }
 export default CollectionPreview;

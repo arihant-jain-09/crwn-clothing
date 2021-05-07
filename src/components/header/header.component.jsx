@@ -8,9 +8,11 @@ import CartIcon from '../cart-icon/cart-icon.jsx'
 import CartDropdown from '../cart-dropdown/cart-dropdown.jsx'
 import {createSelectorCartHidden} from '../../redux/cart/cart.selector.js'
 import {createSelectorUser} from '../../redux/user/user.selector.js'
+
 function Header(){
   const currentUser=createSelectorUser(useSelector((state)=>state));
   const hidden=createSelectorCartHidden(useSelector((state)=>state));
+
   return <>
     <div className='header'>
       <Link className='logo-container' to='/'>
