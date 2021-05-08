@@ -44,6 +44,16 @@ const config ={
     },{})
     
   }
+
+  export const CreateUserProfileDocument=(user,displayName)=>{
+    const userRef=firestore.collection('users').doc(user.uid);
+    userRef.set({
+      createdAt:firebase.firestore.FieldValue.serverTimestamp(),
+      displayName: displayName ? displayName: user.displayName,
+      email:user.email
+    })
+  }
+
   export const Googleprovider=new firebase.auth.GoogleAuthProvider()
   Googleprovider.setCustomParameters({prompt:'select_account'});
   export const signInWithGoogle=()=>auth.signInWithPopup(Googleprovider);

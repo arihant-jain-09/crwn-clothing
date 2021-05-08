@@ -20,8 +20,8 @@ const SignUp=()=> {
       alert("passwords don't match");
       return;
     }
-    const {email,password}=myuser;
-    dispatch(SignUpStart({email,password}))   
+    const {email,password,displayName}=myuser;
+    dispatch(SignUpStart({email,password,displayName}))   
   };
 
   const handleChange = event => {

@@ -24,10 +24,10 @@ export const emailSignInStart=(emailandpassword)=>{
   }
 }
 
-export const SignUpStart=(emailandpassword)=>{
+export const SignUpStart=(emailpasswordanddisplayName)=>{
   return{
     type:'SignUp_Start',
-    payload:emailandpassword
+    payload:emailpasswordanddisplayName
   }
 }
 export const SignUpFailure=(error)=>{

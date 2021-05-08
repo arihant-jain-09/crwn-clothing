@@ -17,7 +17,6 @@ const CollectionPreviewwithSpinner=WithSpinner(CollectionPreview);
 
 function ShopPage({match}){
   const isloading=useSelector((state)=>state.shop.isfetching);
-  console.log(isloading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(startFetching())
@@ -29,7 +28,6 @@ function ShopPage({match}){
       
     }
   }, [dispatch])
-  console.log(isloading);
 return <div className='shop-page'>
   {console.log(match)}
   <Suspense fallback={<Spinner/>}>

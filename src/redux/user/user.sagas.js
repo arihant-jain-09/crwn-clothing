@@ -1,9 +1,10 @@
 import { all, call, put, takeLatest } from "@redux-saga/core/effects";
 import { SignInFailure, SignOutFailure, SignUpFailure} from "./user.actions";
-import {auth, Googleprovider} from '../../firebase/firebase.utils'
+import {auth, CreateUserProfileDocument, Googleprovider} from '../../firebase/firebase.utils'
 export function* GoogleSignInSuccess(){
     try{
-    yield auth.signInWithPopup(Googleprovider);
+    const {user}=yield auth.signInWithPopup(Googleprovider);
+    yield call(CreateUserProfileDocument,user);
     }
     catch (error){
         put(SignInFailure(error))
@@ -19,7 +20,7 @@ export function* GoogleSignInStart(){
 export function* EmailSignInSuccess({payload}){
     const {email,password}=payload;
     try{
-        yield auth.signInWithEmailAndPassword(email,password)
+        yield auth.signInWithEmailAndPassword(email,password);
     }
     catch (error){
         put(SignInFailure(error))
@@ -41,9 +42,10 @@ export function* SignOutSuccess(){
 
 export function* SignUpSuccess({payload}){
     console.log(payload,'called');
-    const {email,password}=payload;
+    const {email,password,displayName}=payload;
     try{
-        yield auth.createUserWithEmailAndPassword(email,password);
+        const {user}=yield auth.createUserWithEmailAndPassword(email,password);
+        yield call(CreateUserProfileDocument,user,displayName);
     }
     catch(error){
         yield put(SignUpFailure(error))
