@@ -14,13 +14,13 @@ function Header(){
   const dispatch = useDispatch();
   return <>
     <div className='header'>
-      <Link className='logo-container' to='/'>
+      <Link className='logo-container' to='/crwn-clothing'>
         <Logo className='logo'> </Logo>
       </Link>
       <div className='options'>
-        <Link className='option' to='/shop'>SHOP</Link>
-        <Link className='option' to='/shop'>CONTACT</Link>
-        {currentUser?<div className='option' onClick={()=>dispatch(SignOutStart())}>SIGN OUT</div>:<Link className='option' to='/signin'>SIGN IN</Link>}
+        <Link className='option' to='/crwn-clothing/shop'>SHOP</Link>
+        <Link className='option' to='/crwn-clothing/shop'>CONTACT</Link>
+        {currentUser?<div className='option' onClick={()=>dispatch(SignOutStart())}>SIGN OUT</div>:<Link className='option' to='/crwn-clothing/signin'>SIGN IN</Link>}
         <CartIcon />
       </div>
       {hidden? null:(<CartDropdown />)}

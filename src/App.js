@@ -44,12 +44,12 @@ const App=()=> {
         <Switch>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <Suspense fallback={<Spinner/>}>
-            <Route exact path='/' component={HomePage} />
-            <Route path='/shop' component={ShopPage} />
-            <Route exact path = '/signin' render = {  () => user  ?
-              (<Redirect to='/'/>) : (<SignInAndSignUpPage/>)
+            <Route exact path='/crwn-clothing' component={HomePage} />
+            <Route path='/crwn-clothing/shop' component={ShopPage} />
+            <Route exact path = '/crwn-clothing/signin' render = {  () => user  ?
+              (<Redirect to='/crwn-clothing'/>) : (<SignInAndSignUpPage/>)
               } />
-              <Route exact path='/checkout' component={Checkout} />
+              <Route exact path='/crwn-clothing/checkout' component={Checkout} />
             </Suspense>
           </ErrorBoundary>
         </Switch>

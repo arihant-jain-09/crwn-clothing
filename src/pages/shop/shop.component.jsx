@@ -31,6 +31,7 @@ function ShopPage({match}){
   }, [dispatch])
   console.log(isloading);
 return <div className='shop-page'>
+  {console.log(match)}
   <Suspense fallback={<Spinner/>}>
     <Route exact path={`${match.path}`} render={(props)=><CollectionPreviewwithSpinner loading={isloading} {...props} /> } />
     <Route path={`${match.path}/:categoryId`} render={(props)=><CategoryPagewithspinner loading={isloading} {...props} />} />
