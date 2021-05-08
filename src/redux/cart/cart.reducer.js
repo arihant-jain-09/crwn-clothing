@@ -1,5 +1,3 @@
-import addItemToCart from './cart.utils.js'
-import{removeItemFromCart} from './cart.utils.js'
 const initialState={
   hidden:true,
   cartitems:[],
@@ -15,8 +13,8 @@ const cartReducer=(state=initialState,action)=>{
       return {
           // myfunc:addItemToCart(state.cartitems, action.payload),
         ...state,
-        // cartitems:[...state.cartitems,action.payload]
-        cartitems: addItemToCart(state.cartitems, action.payload)
+        cartitems:action.payload
+        // cartitems: addItemToCart(state.cartitems, action.payload)
       }
       case 'remove_item':
       return{
@@ -26,13 +24,18 @@ const cartReducer=(state=initialState,action)=>{
       case 'decrease_item':
       return{
         ...state,
-        cartitems: removeItemFromCart(state.cartitems,action.payload)
+        cartitems: action.payload
       }
       case 'Clear_Cart_saga':
         return{
           ...state,
           cartitems:[],
           hidden:true
+        }
+      case 'SET_CART_ITEMS':
+        return{
+          ...state,
+          cartitems:action.payload
         }
     default:
       return state

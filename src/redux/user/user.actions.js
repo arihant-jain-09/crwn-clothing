@@ -23,7 +23,11 @@ export const emailSignInStart=(emailandpassword)=>{
     payload:emailandpassword
   }
 }
-
+export const SignInSuccess=()=>{
+  return{
+    type:'Sign_In_Success',
+  }
+}
 export const SignUpStart=(emailpasswordanddisplayName)=>{
   return{
     type:'SignUp_Start',

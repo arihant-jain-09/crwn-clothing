@@ -1,6 +1,4 @@
 function addItemToCart (cartItems, cartItemToAdd) {
-  console.log(cartItems);
-  console.log(cartItemToAdd);
   const existingCartItem = cartItems.find(
     cartItem => cartItem.id === cartItemToAdd.id
   );

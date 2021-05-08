@@ -14,7 +14,6 @@ const config ={
   firebase.initializeApp(config)
   export const auth=firebase.auth();
   export const firestore=firebase.firestore()
-
   export const addCollectionAndDocuments=async(collectionkey,objectsToAdd)=>{
     const collectionRef=firestore.collection(collectionkey);
     const batch=firestore.batch();
@@ -27,7 +26,6 @@ const config ={
     })
     return await batch.commit().then((val)=>console.log(val))
   }
-
   export const TransformData=(collections)=>{
     const transformedCollection=collections.docs.map((item)=>{
       const {title,items}=item.data();
@@ -41,8 +39,7 @@ const config ={
     return transformedCollection.reduce((accumulator,collection)=>{
       accumulator[collection.title.toLowerCase()]=collection;
       return accumulator
-    },{})
-    
+    },{})    
   }
 
   export const CreateUserProfileDocument=(user,displayName)=>{
@@ -51,9 +48,21 @@ const config ={
       createdAt:firebase.firestore.FieldValue.serverTimestamp(),
       displayName: displayName ? displayName: user.displayName,
       email:user.email
-    })
+    },{merge:true})
   }
 
+  export const addCartitems=(cartitems)=>{
+    const userRef=firestore.collection('users').doc(auth.currentUser.uid);
+    userRef.set({
+      cartitems:cartitems
+    },{merge:true})
+  }
+
+  export const GetCurrentCartItems=async()=>{
+    const cartref=firestore.collection('users').doc(auth.currentUser.uid);
+    return await cartref.get().then((snapshot)=>snapshot.data().cartitems)
+  }
+ 
   export const Googleprovider=new firebase.auth.GoogleAuthProvider()
   Googleprovider.setCustomParameters({prompt:'select_account'});
   export const signInWithGoogle=()=>auth.signInWithPopup(Googleprovider);

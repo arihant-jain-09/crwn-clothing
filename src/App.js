@@ -2,7 +2,7 @@ import React, { useEffect,lazy,Suspense } from 'react';
 import { Switch, Route,Redirect } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles.jsx'
 import Header from './components/header/header.component';
-import { auth } from './firebase/firebase.utils';
+import { auth} from './firebase/firebase.utils';
 import {useDispatch} from 'react-redux';
 import {setCurrentUser} from './redux/user/user.actions.js'
 import { useAuthState } from 'react-firebase-hooks/auth';

@@ -22,7 +22,7 @@ function CartDropdown(){
       }
       </div>
       <CustomButton onClick={()=>{
-          history.push('/checkout')
+          history.push('/crwn-clothing/checkout')
           dispatch(toggleCartHidden());
         }}>Go to Checkout</CustomButton>
     </div>
