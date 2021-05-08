@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/crwn-clothing/static/css/main.726787f2.chunk.css",
-    "main.js": "/crwn-clothing/static/js/main.b4488972.chunk.js",
-    "main.js.map": "/crwn-clothing/static/js/main.b4488972.chunk.js.map",
-    "runtime-main.js": "/crwn-clothing/static/js/runtime-main.368c4960.js",
-    "runtime-main.js.map": "/crwn-clothing/static/js/runtime-main.368c4960.js.map",
+    "main.js": "/crwn-clothing/static/js/main.0ff66f5d.chunk.js",
+    "main.js.map": "/crwn-clothing/static/js/main.0ff66f5d.chunk.js.map",
+    "runtime-main.js": "/crwn-clothing/static/js/runtime-main.ad64d100.js",
+    "runtime-main.js.map": "/crwn-clothing/static/js/runtime-main.ad64d100.js.map",
     "static/js/2.73236041.chunk.js": "/crwn-clothing/static/js/2.73236041.chunk.js",
     "static/js/2.73236041.chunk.js.map": "/crwn-clothing/static/js/2.73236041.chunk.js.map",
     "static/css/3.feca7d2a.chunk.css": "/crwn-clothing/static/css/3.feca7d2a.chunk.css",
@@ -20,10 +20,10 @@
     "static/js/6.c6c9d9e8.chunk.js": "/crwn-clothing/static/js/6.c6c9d9e8.chunk.js",
     "static/js/6.c6c9d9e8.chunk.js.map": "/crwn-clothing/static/js/6.c6c9d9e8.chunk.js.map",
     "static/css/7.51a31ac5.chunk.css": "/crwn-clothing/static/css/7.51a31ac5.chunk.css",
-    "static/js/7.473d564a.chunk.js": "/crwn-clothing/static/js/7.473d564a.chunk.js",
-    "static/js/7.473d564a.chunk.js.map": "/crwn-clothing/static/js/7.473d564a.chunk.js.map",
-    "static/js/8.85536542.chunk.js": "/crwn-clothing/static/js/8.85536542.chunk.js",
-    "static/js/8.85536542.chunk.js.map": "/crwn-clothing/static/js/8.85536542.chunk.js.map",
+    "static/js/7.da0b6e18.chunk.js": "/crwn-clothing/static/js/7.da0b6e18.chunk.js",
+    "static/js/7.da0b6e18.chunk.js.map": "/crwn-clothing/static/js/7.da0b6e18.chunk.js.map",
+    "static/js/8.dd866486.chunk.js": "/crwn-clothing/static/js/8.dd866486.chunk.js",
+    "static/js/8.dd866486.chunk.js.map": "/crwn-clothing/static/js/8.dd866486.chunk.js.map",
     "index.html": "/crwn-clothing/index.html",
     "service-worker.js": "/crwn-clothing/service-worker.js",
     "service-worker.js.map": "/crwn-clothing/service-worker.js.map",
@@ -38,9 +38,9 @@
     "static/media/shopping-bag.a688874f.svg": "/crwn-clothing/static/media/shopping-bag.a688874f.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.368c4960.js",
+    "static/js/runtime-main.ad64d100.js",
     "static/js/2.73236041.chunk.js",
     "static/css/main.726787f2.chunk.css",
-    "static/js/main.b4488972.chunk.js"
+    "static/js/main.0ff66f5d.chunk.js"
   ]
 }
