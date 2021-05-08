@@ -4,9 +4,10 @@ import { useHistory,useRouteMatch } from "react-router-dom";
 function MenuItem(props){
   let history=useHistory();
   let match=useRouteMatch();
+  console.log(match.url);
+  console.log(props.linkUrl);
   return <div className={`menu-item--${props.size} menu-item`} onClick={()=>{
-    console.log(match);
-    history.push(`${match.url}/${props.linkUrl}`)}
+    history.push(`${match.url}${props.linkUrl}`)}
   }>
     <div className='menu-item__backgroundimage' style={{ backgroundImage:`url(${props.imageurl})` }}/>
   <div className='menu-item__content'>
